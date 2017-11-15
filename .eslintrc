@@ -1,0 +1,12 @@
+{
+  "extends": "airbnb",
+  "rules": {
+    "function-paren-newline": ["error", "consistent"],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  },
+  "globals": {
+    "it": true,
+    "window": true,
+    "document": true,
+  }
+}
