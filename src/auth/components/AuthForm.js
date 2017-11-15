@@ -11,6 +11,7 @@ class AuthForm extends Component {
     this.props.handleSubmit({
       username: this.usernameInput.value,
       password: this.passwordInput.value,
+      history: this.props.history,
     });
   }
 

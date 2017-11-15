@@ -1,12 +1,15 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-import store from './redux/store';
+import { BrowserRouter, Route } from 'react-router-dom';
 import AuthForm from './auth/containers/AuthForm';
+import Dashboard from './dashboard/containers/Dashboard';
 
 const App = () => (
-  <Provider store={store}>
-    <AuthForm />
-  </Provider>
+  <BrowserRouter>
+    <div>
+      <Route exact path="/" component={AuthForm} />
+      <Route exact path="/dashboard" component={Dashboard} />
+    </div>
+  </BrowserRouter>
 );
 
 export default App;
