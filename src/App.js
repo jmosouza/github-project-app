@@ -7,7 +7,8 @@ import AuthForm from './auth/containers/AuthForm';
 import Dashboard from './dashboard/containers/Dashboard';
 
 class App extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
     const { authenticated, credentials } = this.props;
     if (authenticated) setCredentials({ ...credentials });
   }
