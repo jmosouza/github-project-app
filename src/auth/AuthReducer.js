@@ -29,18 +29,18 @@ const authLogin = combineReducers({
   valid: authLoginValid,
 });
 
-const authUsername = (username = null, action) => {
+const authCredentials = (credentials = {}, action) => {
   switch (action.type) {
     case AuthActionTypes.AUTH_LOGIN_SUCCEEDED:
-      return action.payload.auth.username;
+      return { ...action.payload.auth };
     case AuthActionTypes.AUTH_LOGOUT_SUCCEEDED:
-      return null;
+      return {};
     default:
-      return username;
+      return credentials;
   }
 };
 
 export default combineReducers({
   login: authLogin,
-  username: authUsername,
+  credentials: authCredentials,
 });
