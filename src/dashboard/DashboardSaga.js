@@ -45,5 +45,7 @@ export default function* dashboardSaga() {
       continue;
     }
     /* eslint-enable */
+
+    yield put({ type: DashboardActionTypes.DASHBOARD_PROJECTS_GET_ALL_SUCCEEDED });
   }
 }

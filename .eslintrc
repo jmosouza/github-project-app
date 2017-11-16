@@ -2,6 +2,7 @@
   "extends": "airbnb",
   "rules": {
     "function-paren-newline": ["error", "consistent"],
+    "react/prop-types": [0],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
   },
   "globals": {
