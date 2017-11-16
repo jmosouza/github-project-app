@@ -18,8 +18,21 @@ const dashboardProjectsAll = (all = {}, action) => {
   }
 };
 
+const dashboardProjectsLoading = (loading = false, action) => {
+  switch (action.type) {
+    case DashboardActionTypes.DASHBOARD_PROJECTS_GET_ALL_SUBMITTED:
+      return true;
+    case DashboardActionTypes.DASHBOARD_PROJECTS_GET_ALL_SUCCEEDED:
+    case DashboardActionTypes.DASHBOARD_PROJECTS_GET_ALL_FAILED:
+      return false;
+    default:
+      return loading;
+  }
+};
+
 const dashboardProjects = combineReducers({
   all: dashboardProjectsAll,
+  loading: dashboardProjectsLoading,
 });
 
 export default combineReducers({

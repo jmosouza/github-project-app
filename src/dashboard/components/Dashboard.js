@@ -12,11 +12,12 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { handleLogout, projects } = this.props;
+    const { handleLogout, projects, projectsLoading } = this.props;
     return (
       <div>
         <button onClick={handleLogout}>Log out</button>
         <ProjectBoardLayout projects={projects} />
+        {projectsLoading && <span>loading...</span>}
       </div>
     );
   }
