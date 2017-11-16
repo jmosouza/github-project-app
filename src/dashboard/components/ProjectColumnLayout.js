@@ -2,8 +2,8 @@ import React from 'react';
 import ProjectColumn from './ProjectColumn';
 
 const ProjectColumnLayout = ({ columns }) => (
-  <div>
-    {columns.map(c => <ProjectColumn column={c} />)}
+  <div className="columns" style={{ overflowX: 'auto' }}>
+    {columns.map(c => <ProjectColumn key={c.id} column={c} />)}
   </div>
 );
 

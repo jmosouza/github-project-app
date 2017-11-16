@@ -4,3 +4,5 @@ export const getAuthenticated = state => (
 );
 
 export const getCredentials = state => state.auth.credentials;
+
+export const getUsername = state => state.auth.credentials.username;

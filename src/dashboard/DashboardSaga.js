@@ -20,6 +20,7 @@ export default function* dashboardSaga() {
       const response = yield axios.get('/user/repos');
       const repositories = response.data;
       for (const repository of repositories) {
+        console.log(`${repository.name} - ${repository.has_projects}`);
         if (!repository.has_projects) continue;
         const owner = repository.owner.login;
         const repo = repository.name;
@@ -37,6 +38,7 @@ export default function* dashboardSaga() {
             column.cards = response.data;
             project.columns.push(column);
           }
+          console.log('PROJECTS!!!!!!!!!!!!!!!');
           yield put(dashboardProjectsGetAllAppendOne({ project }));
         }
       }

@@ -3,7 +3,7 @@ import ProjectBoard from './ProjectBoard';
 
 const ProjectBoardLayout = ({ projects }) => (
   <div>
-    {projects.map(p => <ProjectBoard project={p} />)}
+    {projects.map(p => <ProjectBoard key={p.id} project={p} />)}
   </div>
 );
 

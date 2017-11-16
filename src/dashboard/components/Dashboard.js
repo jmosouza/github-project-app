@@ -24,12 +24,21 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { projects, projectsLoading } = this.props;
+    const { username, projects, projectsLoading } = this.props;
     return (
-      <div>
-        <button onClick={this.handleLogout}>Log out</button>
-        <ProjectBoardLayout projects={projects} />
-        {projectsLoading && <span>loading...</span>}
+      <div className="section">
+        <div className="container">
+          <div className="level">
+            <div className="level-left">
+              Welcome,&nbsp;<span className="has-text-weight-bold">{username}</span>
+            </div>
+            <div className="level-right">
+              <button onClick={this.handleLogout} className="button is-small">Log out</button>
+            </div>
+          </div>
+          <ProjectBoardLayout projects={projects} />
+          {projectsLoading && <button className="button is-white is-loading is-fullwidth has-text-centered" />}
+        </div>
       </div>
     );
   }
