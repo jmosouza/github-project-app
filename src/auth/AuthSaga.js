@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, take } from 'redux-saga/effects';
 import AuthActionTypes from './AuthActionTypes';
+import { authLoginSucceeded } from './AuthActions';
 
 export default function* authSaga() {
   while (true) {
@@ -9,8 +10,8 @@ export default function* authSaga() {
 
     try {
       yield axios.get('/');
-      yield put({ type: AuthActionTypes.AUTH_LOGIN_SUCCEEDED });
-      action.payload.history.push('/dashboard')
+      yield put(authLoginSucceeded({ username: action.payload.auth.username }));
+      action.payload.history.push('/dashboard');
     } catch (e) {
       yield put({ type: AuthActionTypes.AUTH_LOGIN_FAILED });
       continue;
@@ -18,7 +19,7 @@ export default function* authSaga() {
 
     yield take(AuthActionTypes.AUTH_LOGOUT_SUBMITTED);
     axios.defaults.auth = null;
-    action.payload.history.push('/')
+    action.payload.history.push('/');
     yield put({ type: AuthActionTypes.AUTH_LOGOUT_SUCCEEDED });
   }
 }

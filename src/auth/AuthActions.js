@@ -8,6 +8,13 @@ export const authLoginSubmitted = ({ username, password, history }) => ({
   },
 });
 
+export const authLoginSucceeded = ({ username }) => ({
+  type: AuthActionTypes.AUTH_LOGIN_SUCCEEDED,
+  payload: {
+    auth: { username },
+  },
+});
+
 export const authLogoutSubmitted = () => ({
   type: AuthActionTypes.AUTH_LOGOUT_SUBMITTED,
 });
