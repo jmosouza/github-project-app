@@ -1,5 +1,4 @@
-import { persistStore, persistCombineReducers } from 'redux-persist';
-// import storage from 'redux-persist/es/storage'; // default: localStorage if web, AsyncStorage if react-native
+import { persistStore } from 'redux-persist';
 import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 
