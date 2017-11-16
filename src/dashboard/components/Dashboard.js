@@ -2,15 +2,13 @@ import React, { Component } from 'react';
 import ProjectBoardLayout from './ProjectBoardLayout';
 
 class Dashboard extends Component {
-  constructor(props) {
-    if (!props.authenticated) {
-      props.history.push('/');
-    }
-    super(props);
-  }
-
   componentDidMount() {
-    this.props.projectsGetAll();
+    const { authenticated, history, getProjects } = this.props;
+    if (!authenticated) {
+      history.push('/');
+      return;
+    }
+    getProjects();
   }
 
   render() {

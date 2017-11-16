@@ -12,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
   handleLogout: AuthActions.authLogoutSubmitted,
-  projectsGetAll: DashboardActions.dashboardProjectsGetAllSubmitted,
+  getProjects: DashboardActions.dashboardProjectsGetAllSubmitted,
 };
 
 export default connect(
