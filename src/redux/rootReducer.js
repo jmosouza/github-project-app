@@ -6,7 +6,6 @@ import dashboard from '../dashboard/DashboardReducer';
 const persistConfig = {
   key: 'root',
   storage,
-  debug: true,
 };
 
 // Persist redux state to storage
