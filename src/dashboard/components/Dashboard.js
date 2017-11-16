@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import ProjectBoardLayout from './ProjectBoardLayout';
 
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.handleLogout = this.handleLogout.bind(this);
+  }
+
   componentDidMount() {
     const { authenticated, history, getProjects } = this.props;
     if (!authenticated) {
@@ -11,11 +16,18 @@ class Dashboard extends Component {
     getProjects();
   }
 
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.handleLogout({
+      history: this.props.history,
+    });
+  }
+
   render() {
-    const { handleLogout, projects, projectsLoading } = this.props;
+    const { projects, projectsLoading } = this.props;
     return (
       <div>
-        <button onClick={handleLogout}>Log out</button>
+        <button onClick={this.handleLogout}>Log out</button>
         <ProjectBoardLayout projects={projects} />
         {projectsLoading && <span>loading...</span>}
       </div>
